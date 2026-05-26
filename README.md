@@ -1,9 +1,9 @@
 # Learn Solidity — Alchemy University
 
-**Course:** Learn Solidity · [university.alchemy.com](https://university.alchemy.com/course/solidity)
+**Course:** [Learn Solidity](https://university.alchemy.com/course/solidity) · Alchemy University
 **Student:** Machir Tadesse Woldemariam · UGE/27638/14
 **Course Code:** CSEg5304 — Introduction to Blockchain
-**Institution:** Adama Science and Technology University
+**University:** Adama Science and Technology University
 
 ---
 
@@ -11,35 +11,41 @@
 
 ```
 ├── src/
-│   ├── 01_BasicDataTypes/       # Lessons 1–5: bool, uint, int, string, enum
-│   └── 02_SolidityFunctions/    # Lessons 1–6: constructor, functions, pure/view
-├── screenshots/                 # Progress screenshots from Alchemy University
-└── materials/                   # Course reference materials & notes
+│   ├── 01_BasicDataTypes/         Unit 1 — bool, uint, int, string, enum
+│   ├── 02_SolidityFunctions/      Unit 2 — constructor, view, pure, overload
+│   ├── 03_StorageVariables/       Unit 3 — storage slots, memory vs storage
+│   ├── 04_SendingEther/           Unit 4 — msg.value, transfer, call
+│   ├── 05_RevertingTransactions/  Unit 5 — require, revert, custom errors
+│   ├── 06_Calldata/               Unit 6 — calldata, memory, reference types
+│   ├── 07_Escrow/                 Unit 7 — real-world escrow project
+│   ├── 08_Arrays/                 Unit 8 — fixed/dynamic arrays
+│   ├── 09_Structs/                Unit 9 — structs, data grouping
+│   ├── 10_Mappings/               Unit 10 — mappings, nested mappings
+│   ├── 11_Voting/                 Unit 11 — voting contract project
+│   └── 12_Inheritance/            Unit 12 — inheritance, modifiers, overrides
+├── presentations/                 Official Alchemy course slides (markdown)
+├── projects/                      Full project contracts (Escrow, Voting)
+├── notes/                         Simple lesson notes per topic
+├── screenshots/                   Progress screenshots from the course
+└── resources/                     Links, cheat sheets, references
 ```
 
-## Progress
+## Course Progress
 
-| Unit | Topic | Status |
-|------|-------|--------|
-| 1 | Smart Contracts — Basic Data Types | ✅ Complete |
-| 2 | Smart Contracts — Solidity Functions | ✅ Complete |
-
-## Completed Lessons
-
-### Unit 1 · Basic Data Types
-- **1.1** Booleans — storage variables, public keyword
-- **1.2** Unsigned Integers — `uint8`, `uint16`, `uint256`
-- **1.3** Signed Integers — `int8`, `int16`, positive/negative values
-- **1.4** Strings — `bytes32`, `string`, string literals
-- **1.5** Enum — defining and using enum types
-
-### Unit 2 · Solidity Functions
-- **2.1** Arguments & Constructor — passing arguments, variable shadowing
-- **2.2** Increment — external functions, state mutation
-- **2.3** View & Return Values — `view`, `returns`, read-only functions
-- **2.4** Console Log — Foundry `forge-std/console.sol` for debugging
-- **2.5** Pure Functions — functions with no state read/write
-- **2.6** Function Overloading — multiple signatures, tuples
+| # | Unit | Topic | Status |
+|---|------|-------|--------|
+| 1 | Basic Data Types | bool, uint, int, string, enum | ✅ |
+| 2 | Solidity Functions | constructor, view, pure, overload | ✅ |
+| 3 | Storage Variables | slots, memory vs storage | ✅ |
+| 4 | Sending Ether | msg.value, transfer, call | ✅ |
+| 5 | Reverting Transactions | require, revert, custom errors | ✅ |
+| 6 | Calldata | calldata, memory, reference types | ✅ |
+| 7 | Escrow Project | real-world escrow with events | ✅ |
+| 8 | Arrays | fixed/dynamic, push/pop | ✅ |
+| 9 | Structs | grouping variables, nested | ✅ |
+| 10 | Mappings | key-value storage | ✅ |
+| 11 | Voting Project | proposals, votes, execution | ✅ |
+| 12 | Inheritance | is keyword, modifiers, override | ✅ |
 
 ---
-*Alchemy University · Learn Solidity Course*
+*Reference: [alchemyplatform/learn-solidity-presentations](https://github.com/alchemyplatform/learn-solidity-presentations)*
