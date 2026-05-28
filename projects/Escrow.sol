@@ -1,45 +1,43 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.0;
 
-/**
- * @title Escrow
- * @notice Alchemy University — Learn Solidity | Unit 7 — Real World Project
- * @dev Three-party escrow: depositor locks ETH, arbiter approves release
- *      to beneficiary. Uses events to broadcast approval on-chain.
- *
- *      Key concepts: payable constructor, msg.sender roles, events,
- *      address.balance, call{value}().
- */
+/*
+    Escrow Contract
+    ---------------
+    Three-party escrow for exchanging ETH against a service or goods.
+
+    Parties:
+      - Depositor  : deploys the contract and sends ETH
+      - Beneficiary: receives the ETH once approved
+      - Arbiter    : trusted third party who approves the transfer
+
+    Usage:
+      1. Depositor deploys: new Escrow(arbiterAddress, beneficiaryAddress) with ETH attached
+      2. Beneficiary delivers the agreed service or goods
+      3. Arbiter calls approve() to release funds
+*/
+
 contract Escrow {
+    event Approved(uint balance);
 
-    address public arbiter;
-    address public beneficiary;
     address public depositor;
-
-    bool public isApproved;
-
-    event Approved(uint256 balance);
+    address public beneficiary;
+    address public arbiter;
 
     constructor(address _arbiter, address _beneficiary) payable {
+        depositor   = msg.sender;
         arbiter     = _arbiter;
         beneficiary = _beneficiary;
-        depositor   = msg.sender;
     }
 
     function approve() external {
-        require(msg.sender == arbiter, "Only arbiter can approve");
-        require(!isApproved, "Already approved");
+        require(msg.sender == arbiter, "Only the arbiter can approve");
 
-        uint256 balance = address(this).balance;
-        isApproved = true;
+        uint amount = address(this).balance;
 
-        (bool success, ) = payable(beneficiary).call{value: balance}("");
+        (bool success, ) = payable(beneficiary).call{value: amount}("");
         require(success, "Transfer failed");
 
-        emit Approved(balance);
-    }
-
-    function getBalance() external view returns (uint256) {
-        return address(this).balance;
+        emit Approved(amount);
     }
 }
