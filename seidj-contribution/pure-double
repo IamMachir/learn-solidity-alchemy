@@ -1,0 +1,13 @@
+pragma solidity ^0.8.20;
+
+contract Contract {
+    // Original double function - changed from external to public so it can be called internally
+    function double(uint x) public pure returns(uint) {
+        return x * 2;
+    }
+    
+    // Overloaded double function that takes two uint parameters
+    function double(uint x, uint y) external pure returns(uint, uint) {
+        return (double(x), double(y));
+    }
+}
