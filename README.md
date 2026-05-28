@@ -1,51 +1,110 @@
 # Learn Solidity — Alchemy University
 
-**Course:** [Learn Solidity](https://university.alchemy.com/course/solidity) · Alchemy University
-**Student:** Machir Tadesse Woldemariam · UGE/27638/14
+**Course:** Learn Solidity · Alchemy University
+**Platform:** https://university.alchemy.com/course/solidity
+**Institution:** Adama Science and Technology University
+**Department:** Electrical Engineering and Computer Science — Computer Science
 **Course Code:** CSEg5304 — Introduction to Blockchain
-**University:** Adama Science and Technology University
+**Semester:** May 2026
+
+---
+
+## About This Repository
+
+This repository contains all work completed as part of the Learn Solidity laboratory assignment. It includes every exercise, project contract, course material, and progress screenshot from the full Alchemy University Learn Solidity course.
+
+The course covers Solidity from the ground up — starting with basic data types and working through real-world smart contract projects like an Escrow and a Voting system.
 
 ---
 
 ## Repository Structure
 
 ```
-├── src/
-│   ├── 01_BasicDataTypes/         Unit 1 — bool, uint, int, string, enum
-│   ├── 02_SolidityFunctions/      Unit 2 — constructor, view, pure, overload
-│   ├── 03_StorageVariables/       Unit 3 — storage slots, memory vs storage
-│   ├── 04_SendingEther/           Unit 4 — msg.value, transfer, call
-│   ├── 05_RevertingTransactions/  Unit 5 — require, revert, custom errors
-│   ├── 06_Calldata/               Unit 6 — calldata, memory, reference types
-│   ├── 07_Escrow/                 Unit 7 — real-world escrow project
-│   ├── 08_Arrays/                 Unit 8 — fixed/dynamic arrays
-│   ├── 09_Structs/                Unit 9 — structs, data grouping
-│   ├── 10_Mappings/               Unit 10 — mappings, nested mappings
-│   ├── 11_Voting/                 Unit 11 — voting contract project
-│   └── 12_Inheritance/            Unit 12 — inheritance, modifiers, overrides
-├── presentations/                 Official Alchemy course slides (markdown)
-├── projects/                      Full project contracts (Escrow, Voting)
-├── notes/                         Simple lesson notes per topic
-├── screenshots/                   Progress screenshots from the course
-└── resources/                     Links, cheat sheets, references
+├── course-materials/      Lesson notes and reference material for each topic
+├── exercises/             All coding exercises completed during the course
+│   ├── part1-basics/      Data types and functions
+│   ├── part2-addresses/   Sending ether, reverting, calldata, escrow
+│   ├── part3-references/  Arrays, structs, mappings
+│   └── part4-applied/     Voting contract and inheritance
+├── projects/              Complete smart contract projects
+│   ├── Escrow.sol         Three-party escrow contract
+│   └── Voting.sol         On-chain governance voting contract
+├── screenshots/           Course progress and completion screenshots
+├── resources/             External links and reference material
+└── CONTRIBUTORS.md        Group members and contributions
 ```
 
-## Course Progress
+---
 
-| # | Unit | Topic | Status |
-|---|------|-------|--------|
-| 1 | Basic Data Types | bool, uint, int, string, enum | ✅ |
-| 2 | Solidity Functions | constructor, view, pure, overload | ✅ |
-| 3 | Storage Variables | slots, memory vs storage | ✅ |
-| 4 | Sending Ether | msg.value, transfer, call | ✅ |
-| 5 | Reverting Transactions | require, revert, custom errors | ✅ |
-| 6 | Calldata | calldata, memory, reference types | ✅ |
-| 7 | Escrow Project | real-world escrow with events | ✅ |
-| 8 | Arrays | fixed/dynamic, push/pop | ✅ |
-| 9 | Structs | grouping variables, nested | ✅ |
-| 10 | Mappings | key-value storage | ✅ |
-| 11 | Voting Project | proposals, votes, execution | ✅ |
-| 12 | Inheritance | is keyword, modifiers, override | ✅ |
+## Course Completion
+
+The full Learn Solidity course has been completed. All four parts are done with every section checked off, as shown in the screenshots folder.
+
+**Topics covered:**
+
+| Part | Topic |
+|------|-------|
+| 1 | Smart Contracts, Basic Data Types, Solidity Functions |
+| 2 | Sending Ether, Reverting Transactions, Calldata, Escrow |
+| 3 | Arrays, Structs, Mappings |
+| 4 | Voting Contract, Inheritance |
 
 ---
-*Reference: [alchemyplatform/learn-solidity-presentations](https://github.com/alchemyplatform/learn-solidity-presentations)*
+
+## How to Run the Contracts
+
+The contracts were written and tested using the Foundry framework as used throughout the Alchemy University course environment.
+
+**Install Foundry:**
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+```
+
+**Compile a contract:**
+```bash
+forge build
+```
+
+**Run tests:**
+```bash
+forge test
+```
+
+**Deploy to a local testnet:**
+```bash
+anvil
+forge create --rpc-url http://localhost:8545 src/Escrow.sol:Escrow
+```
+
+---
+
+## Technologies Used
+
+- Solidity ^0.8.20
+- Foundry (forge, anvil)
+- Alchemy University course platform
+- Git / GitHub
+
+---
+
+## Team Members
+
+This is a group laboratory project completed collaboratively by five members.
+
+| Name | Student ID | Role |
+|------|-----------|------|
+| **Machir Tadesse Woldemariam** | UGE/27638/14 | Repository Lead |
+| Abenezer Tewodros | UGE/27816/14 | Contributor |
+| Efa Mirkana | UGE/27834/14 | Contributor |
+| Musbah Rida | UGE/27831/14 | Contributor |
+| Samuel Girma | UGE/27830/14 | Contributor |
+| Seid Jemal | UGE/27827/14 | Contributor |
+
+---
+
+## Submission
+
+This repository is submitted as part of the Laboratory Assignment for CSEg5304 — Introduction to Blockchain, May 2026.
+
+Each group member has made public contributions to this repository as required by the assignment guidelines.
