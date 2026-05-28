@@ -1,0 +1,7 @@
+tunnel: 101cffb2-c2c7-4df1-9ed0-6ebc377d2ea4
+credentials-file: C:\Users\Seid Jemal\.cloudflared\101cffb2-c2c7-4df1-9ed0-6ebc377d2ea4.json
+
+ingress:
+  - hostname: shop.mysuqapp.com
+    service: http://localhost:5000
+  - service: http_status:404

@@ -1,0 +1,89 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract Voting {
+    struct Proposal {
+        address target;
+        bytes data;
+        uint yesCount;
+        uint noCount;
+        bool executed;
+        mapping(address => bool) hasVoted;
+        mapping(address => bool) votedYes;
+    }
+
+    Proposal[] public proposals;
+    
+    mapping(address => bool) public isMember;
+    
+    event ProposalCreated(uint proposalId);
+    event VoteCast(uint proposalId, address voter);
+    event ProposalExecuted(uint proposalId);
+
+    constructor(address[] memory _members) {
+        for (uint i = 0; i < _members.length; i++) {
+            isMember[_members[i]] = true;
+        }
+    }
+
+    modifier onlyMember() {
+        require(isMember[msg.sender], "Not a member");
+        _;
+    }
+
+    function newProposal(address target, bytes calldata data) external {
+        proposals.push();
+        Proposal storage proposal = proposals[proposals.length - 1];
+        proposal.target = target;
+        proposal.data = data;
+        proposal.yesCount = 0;
+        proposal.noCount = 0;
+        proposal.executed = false;
+        
+        emit ProposalCreated(proposals.length - 1);
+    }
+
+    function castVote(uint proposalId, bool support) external onlyMember {
+        Proposal storage proposal = proposals[proposalId];
+        require(!proposal.executed, "Proposal already executed");
+        
+        if (proposal.hasVoted[msg.sender]) {
+            if (proposal.votedYes[msg.sender]) {
+                proposal.yesCount--;
+            } else {
+                proposal.noCount--;
+            }
+        }
+        
+        proposal.hasVoted[msg.sender] = true;
+        proposal.votedYes[msg.sender] = support;
+        
+        if (support) {
+            proposal.yesCount++;
+        } else {
+            proposal.noCount++;
+        }
+        
+        emit VoteCast(proposalId, msg.sender);
+        
+        // Execute if 10 or more yes votes
+        if (proposal.yesCount >= 10 && !proposal.executed) {
+            (bool success, ) = proposal.target.call(proposal.data);
+            require(success, "Execution failed");
+            proposal.executed = true;
+            emit ProposalExecuted(proposalId);
+        }
+    }
+    
+    function hasVoted(uint proposalId, address voter) external view returns (bool) {
+        return proposals[proposalId].hasVoted[voter];
+    }
+    
+    function getVote(uint proposalId, address voter) external view returns (bool) {
+        return proposals[proposalId].votedYes[voter];
+    }
+    
+    function isExecuted(uint proposalId) external view returns (bool) {
+        return proposals[proposalId].executed;
+    }
+}
