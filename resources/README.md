@@ -1,50 +1,30 @@
 # Resources
 
-## Official Course Links
-| Resource | URL |
-|----------|-----|
+## Course
+
+| Resource | Link |
+|----------|------|
 | Alchemy University — Learn Solidity | https://university.alchemy.com/course/solidity |
-| Course Presentations (GitHub) | https://github.com/alchemyplatform/learn-solidity-presentations |
-| Alchemy University Home | https://university.alchemy.com |
+| Official Course Presentations | https://github.com/alchemyplatform/learn-solidity-presentations |
 
-## Solidity References
-| Resource | URL |
-|----------|-----|
-| Official Solidity Docs | https://docs.soliditylang.org/en/v0.8.20 |
+## Solidity
+
+| Resource | Link |
+|----------|------|
+| Solidity Documentation (0.8.x) | https://docs.soliditylang.org/en/v0.8.20 |
 | Solidity by Example | https://solidity-by-example.org |
-| Foundry Book | https://book.getfoundry.sh |
-| OpenZeppelin Contracts | https://github.com/OpenZeppelin/openzeppelin-contracts |
-| Ethereum Yellow Paper | https://ethereum.github.io/yellowpaper/paper.pdf |
+| EVM Opcodes Reference | https://www.evm.codes/ |
 
-## Tools
-| Tool | URL |
-|------|-----|
-| Remix IDE (browser Solidity) | https://remix.ethereum.org |
-| Hardhat | https://hardhat.org |
-| Foundry | https://getfoundry.sh |
+## Tooling
+
+| Tool | Link |
+|------|------|
+| Foundry | https://book.getfoundry.sh |
+| Remix IDE (browser) | https://remix.ethereum.org |
 | Etherscan | https://etherscan.io |
 
-## Cheat Sheet
+## Additional Reading
 
-### Visibility
-```
-private   → this contract only
-internal  → this + child contracts
-public    → anywhere
-external  → outside only (cheapest for params)
-```
-
-### State Mutability
-```
-(none)  → read + write state
-view    → read only
-pure    → no state access
-payable → can receive ETH
-```
-
-### Data Locations
-```
-storage  → on-chain, permanent, expensive
-memory   → temp, cheap, wiped after function
-calldata → temp, cheapest, read-only (external params)
-```
+- [Smart Contract Storage Layout](https://docs.soliditylang.org/en/v0.8.20/internals/layout_in_storage.html)
+- [Ether Units](https://docs.soliditylang.org/en/v0.8.20/units-and-global-variables.html)
+- [OpenZeppelin Contracts](https://github.com/OpenZeppelin/openzeppelin-contracts)
