@@ -7,8 +7,11 @@
 ---
 
 **COURSE**: INTRODUCTION TO BLOCKCHAIN (CSEG5304)
+
 **NAME**: Samuel Girma
+
 **ID**: UGE/27830/14
+
 **DEPARTMENT**: Computer Science and Engineering (CSE)
 
 ---
